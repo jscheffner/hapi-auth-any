@@ -1,0 +1,35 @@
+{
+  "name": "hapi-auth-any",
+  "version": "0.1.0",
+  "description": "hapi auth schema, combines multiple other strategies and passes if any of them passes",
+  "main": "index.js",
+  "scripts": {
+    "test": "nyc ava",
+    "lint": "eslint test index.js",
+    "format": "npm run lint -- --fix"
+  },
+  "files": [
+    "index.js"
+  ],
+  "author": "Jonas Scheffner",
+  "license": "ISC",
+  "devDependencies": {
+    "@hapi/hapi": "^18.3.1",
+    "ava": "^2.2.0",
+    "eslint": "^5.3.0",
+    "eslint-config-airbnb": "^17.1.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "nyc": "^14.1.1"
+  },
+  "ava": {
+    "files": [
+      "test/*.spec.js"
+    ]
+  },
+  "dependencies": {
+    "@hapi/boom": "^7.4.2",
+    "p-any": "^2.1.0"
+  }
+}
