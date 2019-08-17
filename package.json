@@ -6,7 +6,8 @@
   "scripts": {
     "test": "nyc ava",
     "lint": "eslint test index.js",
-    "format": "npm run lint -- --fix"
+    "format": "npm run lint -- --fix",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "files": [
     "index.js"
@@ -16,6 +17,7 @@
   "devDependencies": {
     "@hapi/hapi": "^18.3.1",
     "ava": "^2.2.0",
+    "coveralls": "^3.0.6",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.18.2",

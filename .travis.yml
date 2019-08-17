@@ -1,0 +1,14 @@
+language: node_js
+node_js:
+- 8
+- node
+- lts/*
+script: npm run lint && npm t
+after_success: npm run coverage
+deploy:
+  provider: npm
+  email: dev.scheffner@outlook.de
+  on:
+    tags: true
+  api_key:
+    secure: U8o6nbg+HhDcG6S5pY2qKvYMXjQ/3SVHhiz+HnLVYvzWEcnH1Jk64vEBDQ4Yay1BxG+iHAc8OZPlYBxG9RPTFJnbdOH3GlYLfQCtytf5QtEn5bheEzjfdQAEbpiEp/9L3T8x0Tz0Ov82e846zhnYSSpX4bLkJVYK0ipX452Zqo1XYvbzzDapzRvuNtPBwr5c3WBJgIXFmda9gnAUD52I7YEUxpgQdhzfUUyCxdtG8Mvy9Z6zhF95lML/lBGHEZ73cATHgEFQFUO4uA7Slr6wBZc0ohjJlLWSwBV6IUotJxqk3620XCJDp10r1hPsDWFgpuAAIImLy8X/0z6KbnswiQ9wTKfsueaizHjDuibsEcYUao9yazAJCXgKsStaG5zQ0dt3DxCmVwDGWar4OyIBZsh4DNmPdDaW5cGKndTVKbottFkgsMGMvRDKRGHSQfaW7QVqxdxGXBsOZHxTGCluKE8ULhfgh0kuuJr07q4eXUcHt2zSubkREWJd/EjLMPSq/0AaSVqq0+NZ1r/Qr/RvMa3YKyDNv1HKzwPWnmR8CbXiWgfvNYUEeYBLTX9Zukb4Q92YCKBy+D71EY5Io/uPdjVQGMfbFgdHzd/5f60/26XR3PpfTQuB3K+w6WD2X4ceNPdOdeBYfcwEtvchGPTHkCwL1KGpOKk9QtysIN8wjgo=
