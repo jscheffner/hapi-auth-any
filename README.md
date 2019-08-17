@@ -2,6 +2,8 @@
 
 **hapi-auth-any** is a plugin for hapi.js which lets you combine multiple different strategies. It passes if one of them does. Hapi already supports this out-of-the-box, but only if each of those strategies are based on different schemes. With *hapi-auth-any* you can combine various strategies that are based on the same scheme.
 
+**Only the credentials of the strategy that passes first are returned.**
+
 ## Usage
 
 Install it with `npm install hapi-auth-any`
@@ -32,11 +34,11 @@ const init = async () => {
   
   // register the strategy with the `any` scheme, pass the names of the strategies you want to combine as the `strategy` option
   server.auth.strategy('any', 'any', {
-    strategies: ['strategy-1', 'strategy-2'] 
+    strategies: ['simple', 'not-so-simple'] 
   });
   server.auth.default('any');
 }
 
 init()
-// => Now, a user can acces any route if at least of of the two strategies, simple or not-so-simple, succeeds
+// => Now, a user can access any route if at least of of the two strategies, simple or not-so-simple, succeeds
 ```

@@ -12,8 +12,8 @@ const test = async (server, strategy, request) => {
 
 const authenticate = (server, strategies) => async (request, h) => {
   try {
-    const credentials = await pAny(strategies.map(strategy => test(server, strategy, request)));
-    return h.authenticated(credentials);
+    const auth = await pAny(strategies.map(strategy => test(server, strategy, request)));
+    return h.authenticated(auth);
   } catch (errors) {
     return boom.unauthorized([...errors].map(({ message }) => message).join(', '));
   }
