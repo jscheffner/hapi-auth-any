@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/jscheffner/hapi-auth-any.svg?branch=master)](https://travis-ci.com/jscheffner/hapi-auth-any) [![Coverage Status](https://coveralls.io/repos/github/jscheffner/hapi-auth-any/badge.svg?branch=master)](https://coveralls.io/github/jscheffner/hapi-auth-any?branch=master)
+
 # hapi-auth-any
 
 **hapi-auth-any** is a plugin for hapi.js which lets you combine multiple different strategies. It passes if one of them does. Hapi already supports this out-of-the-box, but only if each of those strategies are based on different schemes. With *hapi-auth-any* you can combine various strategies that are based on the same scheme.
