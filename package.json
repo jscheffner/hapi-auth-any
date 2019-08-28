@@ -13,6 +13,7 @@
     "index.js"
   ],
   "author": "Jonas Scheffner",
+  "repository": "github:jscheffner/hapi-auth-any",
   "license": "ISC",
   "devDependencies": {
     "@hapi/hapi": "^18.3.1",
