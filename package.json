@@ -1,7 +1,7 @@
 {
   "name": "hapi-auth-any",
   "version": "0.1.1",
-  "description": "hapi auth schema, combines multiple other strategies and passes if any of them passes",
+  "description": "hapi auth scheme, combines multiple other strategies and passes if any of them does",
   "main": "index.js",
   "scripts": {
     "test": "nyc ava",
@@ -14,6 +14,23 @@
   ],
   "author": "Jonas Scheffner",
   "repository": "github:jscheffner/hapi-auth-any",
+  "keywords": [
+    "hapi",
+    "hapijs",
+    "hapi.js",
+    "auth",
+    "authentication",
+    "access",
+    "credentials",
+    "scope",
+    "any",
+    "plugin",
+    "strategy",
+    "strategies",
+    "combine",
+    "scheme",
+    "schema"
+  ],
   "license": "ISC",
   "devDependencies": {
     "@hapi/hapi": "^18.3.1",

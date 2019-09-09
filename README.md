@@ -2,13 +2,13 @@
 
 # hapi-auth-any
 
-**hapi-auth-any** is a plugin for [hapi.js](https://hapijs.com/) which lets you combine multiple different strategies. It passes if one of them does. Hapi already supports this out-of-the-box, but only if each of those strategies are based on different schemes. With *hapi-auth-any* you can combine various strategies that are based on the same scheme.
+**hapi-auth-any** is a plugin for [hapi.js](https://hapijs.com/) which lets you combine multiple different authentication strategies. It passes if one of them does. Hapi already supports this out-of-the-box, but only if all of those strategies are based on different schemes. With *hapi-auth-any* you can combine various strategies that are based on the same scheme.
 
 **Only the credentials of the strategy that passes first are returned.**
 
 ## Plugin Options
 
-The plugin only accepts a single option at the moment. `strategies` is an array containing the names of the strategies that should be combined. Those names are the first argument passed to `server.auth.strategy` when registering the strategy.
+The plugin only accepts a single option at the moment. `strategies` is an array containing the names of the strategies to combine. Those names are the first argument passed to `server.auth.strategy` when registering the strategy.
 
 ## Usage
 
@@ -20,7 +20,7 @@ Install the plugin with `npm install hapi-auth-any`.
 
 #### 2. Import
 
-Import the plugin and the the plugins you need to create the strategies you want to combine (in this example only `@hapi/basic`).
+Import `hapi-auth-any` and the plugins you need for the authentication strategies that you want to combine (in this example only `@hapi/basic`).
 
 ```js
 const authAny = require('hapi-auth-any');
@@ -46,7 +46,7 @@ await server.register([
 ]);
 ````
 
-Register the strategies you want to combine.
+Register the authentication strategies you want to combine.
 
 ```js
 server.auth.strategy('foo', 'basic', {...});

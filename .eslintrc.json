@@ -1,9 +1,9 @@
 {
-    "extends": "airbnb",
-    "rules": {
-        "no-underscore-dangle": [
-            "error",
-            { "allow": ["_schemes"] }
-        ]
-    }
+  "extends": "airbnb",
+  "rules": {
+    "no-underscore-dangle": [
+      "error",
+      { "allow": ["_schemes"] }
+    ]
+  }
 }
