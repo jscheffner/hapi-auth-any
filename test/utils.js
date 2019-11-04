@@ -34,8 +34,8 @@ const setupServerAndPlugin = async () => {
     method: 'GET',
     path: '/',
     options: {
-      handler(_, h) {
-        return h.response();
+      handler() {
+        return 'authenticated';
       },
     },
   });

@@ -63,3 +63,18 @@ server.auth.strategy('any', 'any', {
 server.auth.default('any');
 ```
 
+## Debugging
+
+Sometimes, the messages exposed to the end users are not enough to find the root of a problem, specifically if a strategy fails because of a server-side error.
+
+To access the complete errors, including their stack, you can register an event listener:
+
+```js
+  server.events.on({ name: 'request', channels: 'internal' }, (request, event, tags) => {
+    if (tags.auth && tags.error) {
+      console.log(event.error);
+    }
+  });
+```
+
+In this, debugging `hapi-auth-any` isn't different from debugging other strategies. However, in order to preserve the errors that caused `hapi-auth-any` to fail, it throws an [AggregateError](https://github.com/sindresorhus/aggregate-error), decorated with some [boom](https://github.com/hapijs/boom)-specific properties. `AggregateErrors` are iterable, which is how you can access the individual errors.

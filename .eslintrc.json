@@ -5,5 +5,13 @@
       "error",
       { "allow": ["_schemes"] }
     ]
-  }
+  },
+  "overrides": [
+    {
+      "files": ["examples/**/*.js"],
+      "rules": {
+        "import/no-unresolved": "off"
+      }
+    }
+  ]
 }

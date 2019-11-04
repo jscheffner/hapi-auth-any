@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc ava",
-    "lint": "eslint test index.js",
+    "lint": "eslint test index.js test/**/*.js examples/**/*.js",
     "format": "npm run lint -- --fix",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
