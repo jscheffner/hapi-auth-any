@@ -33,7 +33,7 @@
   ],
   "license": "ISC",
   "devDependencies": {
-    "@hapi/hapi": "^18.3.1",
+    "@hapi/hapi": "^19.0.3",
     "ava": "^2.2.0",
     "coveralls": "^3.0.6",
     "eslint": "^5.3.0",
