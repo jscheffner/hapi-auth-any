@@ -3,11 +3,6 @@ const { AggregateError } = require('p-any');
 const { isBoom } = require('@hapi/boom');
 const { setup: setupAll, setupServerAndPlugin, request } = require('./utils');
 
-test('register plugin and create strategy', async (t) => {
-  const server = await setupServerAndPlugin();
-  t.is(typeof server.auth._schemes.any, 'function');
-});
-
 test('fail if all fail', async (t) => {
   const server = await setupAll([false, false, false]);
   const { statusCode, result } = await request(server);

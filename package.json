@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc ava",
+    "test:hapi19": "cross-env HAPI_19=true nyc ava",
     "lint": "eslint test index.js test/**/*.js examples/**/*.js",
     "format": "npm run lint -- --fix",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -36,11 +37,13 @@
     "@hapi/hapi": "^18.3.1",
     "ava": "^3.1.0",
     "coveralls": "^3.0.6",
+    "cross-env": "^7.0.0",
     "eslint": "^5.3.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
+    "hapi19": "npm:@hapi/hapi@^19.0.5",
     "nyc": "^15.0.0"
   },
   "ava": {
