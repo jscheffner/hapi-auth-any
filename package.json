@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@hapi/boom": "^9.0.0",
-    "p-any": "^2.1.0"
+    "p-any": "^3.0.0"
   },
   "peerDependencies": {
     "@hapi/hapi": "18.x"
