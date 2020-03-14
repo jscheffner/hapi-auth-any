@@ -9,16 +9,16 @@ jobs:
           - 8.x
           - 10.x
           - 12.x
-        hapi-19:
-          - true
-          - false
+        hapi-version:
+          - 18
+          - 19
         exclude:
           - node-version: 8.x
-            hapi-19: true
+            hapi-version: 19
           - node-version: 10.x
-            hapi-19: true
+            hapi-version: 19
     env:
-      HAPI_19: ${{ matrix.hapi-19 }}
+      HAPI_VERSION: ${{ matrix.hapi-version }}
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}

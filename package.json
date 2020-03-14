@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "nyc ava",
-    "test:hapi19": "cross-env HAPI_19=true nyc ava",
+    "test:hapi19": "cross-env HAPI_VERSION=19 nyc ava",
     "lint": "eslint test index.js test/**/*.js examples/**/*.js",
     "format": "npm run lint -- --fix",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
