@@ -20,13 +20,13 @@ test('provide causes of failing strategies', async (t) => {
   });
 
   request(server);
-  const err = await listener;
+  const errors = await listener;
 
-  t.log(err);
-  t.true(err instanceof AggregateError);
-  t.true(isBoom(err));
-  t.is([...err].length, 4);
-  t.true([...err].every(isBoom));
+  t.log(errors);
+  t.true(errors instanceof AggregateError);
+  t.true(isBoom(errors));
+  t.is([...errors].length, 4);
+  [...errors].forEach(err => t.true(isBoom(err), `${err.strategy} should result in a boom error.`));
 });
 
 test('succeed if all succeed', async (t) => {
