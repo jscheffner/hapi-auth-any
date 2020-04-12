@@ -34,7 +34,7 @@
   ],
   "license": "ISC",
   "devDependencies": {
-    "@hapi/hapi": "^18.3.1",
+    "@hapi/hapi": "^19.1.1",
     "ava": "^2.4.0",
     "coveralls": "^3.0.6",
     "cross-env": "^6.0.3",
