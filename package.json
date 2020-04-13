@@ -57,5 +57,8 @@
   },
   "peerDependencies": {
     "@hapi/hapi": "18.x || 19.x"
+  },
+  "engines": {
+    "node" : ">=8.0.0"
   }
 }
