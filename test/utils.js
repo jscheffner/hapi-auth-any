@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-dynamic-require
-const hapi = require(process.env.HAPI_VERSION === '19' ? 'hapi19' : 'hapi18');
+const hapi = require(`hapi${process.env.HAPI_VERSION || '19'}`);
 const boom = require('@hapi/boom');
 const anyAuth = require('../');
 
