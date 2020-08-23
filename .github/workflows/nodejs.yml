@@ -12,11 +12,16 @@ jobs:
         hapi-version:
           - 18
           - 19
+          - 20
         exclude:
           - node-version: 8.x
             hapi-version: 19
           - node-version: 10.x
             hapi-version: 19
+          - node-version: 8.x
+            hapi-version: 20
+          - node-version: 10.x
+            hapi-version: 20
     env:
       HAPI_VERSION: ${{ matrix.hapi-version }}
     steps:
@@ -30,5 +35,3 @@ jobs:
         npm install
         npm run lint
         npm test
-      env:
-        CI: true

@@ -6,6 +6,7 @@
   "scripts": {
     "test": "nyc ava",
     "test:hapi19": "cross-env HAPI_VERSION=19 nyc ava",
+    "test:hapi20": "cross-env HAPI_VERSION=20 nyc ava",
     "lint": "eslint test index.js test/**/*.js examples/**/*.js",
     "format": "npm run lint -- --fix",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -44,6 +45,7 @@
     "eslint-plugin-react": "^7.14.3",
     "hapi18": "npm:@hapi/hapi@^18.3.1",
     "hapi19": "npm:@hapi/hapi@^19.0.5",
+    "hapi20": "npm:@hapi/hapi@^20.0.0",
     "nyc": "^15.0.0"
   },
   "ava": {
@@ -56,9 +58,9 @@
     "p-any": "^3.0.0"
   },
   "peerDependencies": {
-    "@hapi/hapi": "18.x || 19.x"
+    "@hapi/hapi": "18.x || 19.x || 20.x"
   },
   "engines": {
-    "node" : ">=8.0.0"
+    "node": ">=8.0.0"
   }
 }
