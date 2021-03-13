@@ -1,14 +1,14 @@
 // eslint-disable-next-line import/no-dynamic-require
 const hapi = require(`hapi${process.env.HAPI_VERSION || '19'}`);
 const boom = require('@hapi/boom');
-const anyAuth = require('../');
+const anyAuth = require('..');
 
-const request = server => server.inject({
+const request = (server) => server.inject({
   url: '/',
   headers: { authorization: 'Bearer Something' },
 });
 
-const authenticate = succeed => (_, h) => {
+const authenticate = (succeed) => (_, h) => {
   if (succeed) {
     return h.authenticated({ credentials: { scope: [] } });
   }
