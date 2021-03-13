@@ -26,7 +26,7 @@ test('provide causes of failing strategies', async (t) => {
   t.true(errors instanceof AggregateError);
   t.true(isBoom(errors));
   t.is([...errors].length, 4);
-  [...errors].forEach(err => t.true(isBoom(err), `${err.strategy} should result in a boom error.`));
+  [...errors].forEach((err) => t.true(isBoom(err), `${err.strategy} should result in a boom error.`));
 });
 
 test('succeed if all succeed', async (t) => {

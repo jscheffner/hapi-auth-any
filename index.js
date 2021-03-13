@@ -3,9 +3,9 @@ const pAny = require('p-any');
 
 const pkg = require('./package');
 
-const to = promise => promise
-  .then(data => [null, data])
-  .catch(err => [err, null]);
+const to = (promise) => promise
+  .then((data) => [null, data])
+  .catch((err) => [err, null]);
 
 const test = (server, request) => async (strategy) => {
   const [error, auth] = await to(server.auth.test(strategy, request));
