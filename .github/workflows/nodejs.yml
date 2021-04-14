@@ -31,3 +31,19 @@ jobs:
         npm install
         npm run lint
         npm test
+  coverage:
+    runs-on: ubuntu-latest
+    env:
+      HAPI_VERSION: 20
+    steps:
+    - uses: actions/checkout@v1
+    - uses: actions/setup-node@v1
+      with:
+        node-version: 14
+    - name: install and test
+      run: |
+        npm install
+        npm test
+    - uses: codecov/codecov-action@v1
+      with:
+        fail_ci_if_error: true

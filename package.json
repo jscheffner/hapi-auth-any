@@ -53,6 +53,12 @@
       "test/*.spec.js"
     ]
   },
+  "nyc": {
+    "reporter": [
+			"text",
+			"lcov"
+		]
+  },
   "dependencies": {
     "@hapi/boom": "^9.0.0",
     "p-any": "^3.0.0"
