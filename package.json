@@ -8,8 +8,7 @@
     "test:hapi19": "cross-env HAPI_VERSION=19 nyc ava",
     "test:hapi20": "cross-env HAPI_VERSION=20 nyc ava",
     "lint": "eslint test index.js test/**/*.js examples/**/*.js",
-    "format": "npm run lint -- --fix",
-    "coverage": "nyc report --reporter=text-lcov | coveralls"
+    "format": "npm run lint -- --fix"
   },
   "files": [
     "index.js"
@@ -36,7 +35,6 @@
   "license": "ISC",
   "devDependencies": {
     "ava": "^3.13.0",
-    "coveralls": "^3.0.6",
     "cross-env": "^7.0.2",
     "eslint": "^7.22.0",
     "eslint-config-airbnb": "^18.2.1",
