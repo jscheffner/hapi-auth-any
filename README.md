@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/jscheffner/hapi-auth-any/badge.svg?branch=main)](https://coveralls.io/github/jscheffner/hapi-auth-any?branch=main)
+[![codecov](https://codecov.io/gh/jscheffner/hapi-auth-any/branch/main/graph/badge.svg?token=WKAK6EXGOO)](https://codecov.io/gh/jscheffner/hapi-auth-any)
 
 # hapi-auth-any
 
