@@ -1,7 +1,7 @@
 const boom = require('@hapi/boom');
 const pAny = require('p-any');
 
-const pkg = require('./package');
+const pkg = require('./package.json');
 
 const to = (promise) => promise
   .then((data) => [null, data])
