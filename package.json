@@ -58,7 +58,7 @@
   },
   "dependencies": {
     "@hapi/boom": "^10.0.0",
-    "p-any": "^3.0.0"
+    "p-any": "^4.0.0"
   },
   "peerDependencies": {
     "@hapi/hapi": "19.x || 20.x"
