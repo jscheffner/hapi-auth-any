@@ -12,6 +12,7 @@ jobs:
         hapi-version:
           - 19
           - 20
+          - 21
     env:
       HAPI_VERSION: ${{ matrix.hapi-version }}
     steps:
