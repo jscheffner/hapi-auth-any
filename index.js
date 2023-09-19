@@ -1,5 +1,4 @@
 const boom = require('@hapi/boom');
-const pAny = require('p-any');
 
 const pkg = require('./package.json');
 
@@ -21,7 +20,7 @@ const test = (server, request) => async (strategy) => {
 };
 
 const authenticate = (server, strategies) => async (request, h) => {
-  const [errors, auth] = await to(pAny(strategies.map(test(server, request))));
+  const [errors, auth] = await to(Promise.any(strategies.map(test(server, request))));
 
   if (errors) {
     const preparedAggregateError = boom.boomify(errors, { statusCode: 401 });
