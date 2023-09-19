@@ -20,11 +20,11 @@ const test = (server, request) => async (strategy) => {
 };
 
 const authenticate = (server, strategies) => async (request, h) => {
-  const [errors, auth] = await to(Promise.any(strategies.map(test(server, request))));
+  const [aggregateError, auth] = await to(Promise.any(strategies.map(test(server, request))));
 
-  if (errors) {
-    const preparedAggregateError = boom.boomify(errors, { statusCode: 401 });
-    preparedAggregateError.output.payload.message = [...errors].map(({ output }) => output.payload.message).join(', ');
+  if (aggregateError) {
+    const preparedAggregateError = boom.boomify(aggregateError, { statusCode: 401 });
+    preparedAggregateError.output.payload.message = aggregateError.errors.map(({ output }) => output.payload.message).join(', ');
     throw preparedAggregateError;
   }
 
