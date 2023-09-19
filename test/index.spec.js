@@ -1,5 +1,4 @@
 const test = require('ava');
-const { AggregateError } = require('p-any');
 const { isBoom } = require('@hapi/boom');
 const { setup: setupAll, setupServerAndPlugin, request } = require('./utils');
 
@@ -20,13 +19,13 @@ test('provide causes of failing strategies', async (t) => {
   });
 
   request(server);
-  const errors = await listener;
+  const aggregateError = await listener;
 
-  t.log(errors);
-  t.true(errors instanceof AggregateError);
-  t.true(isBoom(errors));
-  t.is([...errors].length, 4);
-  [...errors].forEach((err) => t.true(isBoom(err), `${err.strategy} should result in a boom error.`));
+  t.log(aggregateError);
+  t.true(aggregateError instanceof AggregateError);
+  t.true(isBoom(aggregateError));
+  t.is(aggregateError.errors.length, 4);
+  aggregateError.errors.forEach((err) => t.true(isBoom(err), `${err.strategy} should result in a boom error.`));
 });
 
 test('succeed if all succeed', async (t) => {
