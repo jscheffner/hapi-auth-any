@@ -6,5 +6,8 @@
       { "allow": ["_schemes"] }
     ],
     "import/no-unresolved": "off"
+  },
+  "env": {
+    "node": true
   }
 }
