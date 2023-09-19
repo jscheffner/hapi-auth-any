@@ -42,8 +42,6 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
-    "hapi19": "npm:@hapi/hapi@^19.0.5",
-    "hapi20": "npm:@hapi/hapi@^20.0.0",
     "hapi21": "npm:@hapi/hapi@^21.3.0",
     "nyc": "^15.0.0"
   },
@@ -63,9 +61,9 @@
     "p-any": "^3.0.0"
   },
   "peerDependencies": {
-    "@hapi/hapi": "19.x || 20.x || 21.x"
+    "@hapi/hapi": "21.x"
   },
   "engines": {
-    "node": ">=14.0.0"
+    "node": ">=18.0.0"
   }
 }
