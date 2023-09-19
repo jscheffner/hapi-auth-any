@@ -1,6 +1,6 @@
 {
   "name": "hapi-auth-any",
-  "version": "1.0.0",
+  "version": "2.0.0-rc.0",
   "description": "hapi auth scheme, combines multiple other strategies and passes if any of them does",
   "main": "index.js",
   "scripts": {
