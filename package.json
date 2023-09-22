@@ -4,11 +4,11 @@
   "description": "hapi auth scheme, combines multiple other strategies and passes if any of them does",
   "main": "index.js",
   "scripts": {
-    "test": "nyc ava",
+    "test": "node --test tests",
     "test:hapi19": "cross-env HAPI_VERSION=19 nyc ava",
     "test:hapi20": "cross-env HAPI_VERSION=20 nyc ava",
     "test:hapi21": "cross-env HAPI_VERSION=21 nyc ava",
-    "lint": "eslint test index.js test/**/*.js examples/**/*.js",
+    "lint": "eslint tests index.js tests/**/*.js examples/**/*.js",
     "format": "npm run lint -- --fix"
   },
   "files": [
@@ -35,7 +35,6 @@
   ],
   "license": "ISC",
   "devDependencies": {
-    "ava": "^5.2.0",
     "cross-env": "^7.0.2",
     "eslint": "^8.22.0",
     "eslint-config-airbnb": "^19.0.4",

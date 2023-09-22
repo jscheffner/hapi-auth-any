@@ -1,16 +1,18 @@
-const test = require('ava');
 const { isBoom } = require('@hapi/boom');
+const test = require('node:test');
+const { strict: assert } = require('node:assert');
+
 const { setup: setupAll, setupServerAndPlugin, request } = require('./utils');
 
-test('fail if all fail', async (t) => {
+test('fail if all fail', async () => {
   const server = await setupAll([false, false, false]);
   const { statusCode, result } = await request(server);
 
-  t.is(statusCode, 401);
-  t.is(result.message, 'Strategy strategy-0: Missing Credentials, Strategy strategy-1: Missing Credentials, Strategy strategy-2: Missing Credentials');
+  assert.equal(statusCode, 401);
+  assert.equal(result.message, 'Strategy strategy-0: Missing Credentials, Strategy strategy-1: Missing Credentials, Strategy strategy-2: Missing Credentials');
 });
 
-test('provide causes of failing strategies', async (t) => {
+test('provide causes of failing strategies', async () => {
   const server = await setupAll([false, false, false, false]);
   const listener = new Promise((resolve) => {
     server.events.on({ name: 'request', channels: 'internal' }, (req, event) => {
@@ -21,35 +23,34 @@ test('provide causes of failing strategies', async (t) => {
   request(server);
   const aggregateError = await listener;
 
-  t.log(aggregateError);
-  t.true(aggregateError instanceof AggregateError);
-  t.true(isBoom(aggregateError));
-  t.is(aggregateError.errors.length, 4);
-  aggregateError.errors.forEach((err) => t.true(isBoom(err), `${err.strategy} should result in a boom error.`));
+  assert.equal(true, aggregateError instanceof AggregateError);
+  assert.equal(true, isBoom(aggregateError));
+  assert.equal(aggregateError.errors.length, 4);
+  aggregateError.errors.forEach((err) => assert.equal(true, isBoom(err), `${err.strategy} should result in a boom error.`));
 });
 
-test('succeed if all succeed', async (t) => {
+test('succeed if all succeed', async () => {
   const server = await setupAll([true, true, true, true]);
   const { statusCode } = await request(server);
 
-  t.is(statusCode, 200);
+  assert.equal(statusCode, 200);
 });
 
-test('succeed if one succeeds', async (t) => {
+test('succeed if one succeeds', async () => {
   const server = await setupAll([false, false, false, true, false, false]);
   const { statusCode } = await request(server);
 
-  t.is(statusCode, 200);
+  assert.equal(statusCode, 200);
 });
 
-test('succeed if some succeeds', async (t) => {
+test('succeed if some succeeds', async () => {
   const server = await setupAll([false, true, false, true, false, true]);
   const { statusCode } = await request(server);
 
-  t.is(statusCode, 200);
+  assert.equal(statusCode, 200);
 });
 
-test('do not expose message of server errors', async (t) => {
+test('do not expose message of server errors', async () => {
   const server = await setupServerAndPlugin();
   server.auth.scheme('error', () => ({ authenticate: () => { throw new Error('Test Error'); } }));
   server.auth.strategy('error', 'error');
@@ -57,9 +58,8 @@ test('do not expose message of server errors', async (t) => {
   server.auth.default('any');
 
   const { statusCode, result } = await request(server);
-  t.log(result);
-  t.is(statusCode, 401);
-  t.deepEqual(result, {
+  assert.equal(statusCode, 401);
+  assert.deepEqual(result, {
     error: 'Unauthorized',
     message: 'Strategy error: An internal server error occurred',
     statusCode: 401,
