@@ -4,7 +4,7 @@
   "description": "hapi auth scheme, combines multiple other strategies and passes if any of them does",
   "main": "index.js",
   "scripts": {
-    "test": "node --test tests",
+    "test": "nyc node --test tests",
     "test:hapi19": "cross-env HAPI_VERSION=19 nyc ava",
     "test:hapi20": "cross-env HAPI_VERSION=20 nyc ava",
     "test:hapi21": "cross-env HAPI_VERSION=21 nyc ava",
@@ -43,11 +43,6 @@
     "eslint-plugin-react": "^7.14.3",
     "hapi21": "npm:@hapi/hapi@^21.3.0",
     "nyc": "^15.0.0"
-  },
-  "ava": {
-    "files": [
-      "test/*.spec.js"
-    ]
   },
   "nyc": {
     "reporter": [
