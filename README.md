@@ -1,5 +1,3 @@
-[![codecov](https://codecov.io/gh/jscheffner/hapi-auth-any/branch/main/graph/badge.svg?token=WKAK6EXGOO)](https://codecov.io/gh/jscheffner/hapi-auth-any)
-
 # hapi-auth-any
 
 **hapi-auth-any** is a plugin for [hapi.js](https://hapijs.com/) which lets you combine multiple different authentication strategies. It passes if one of them does. Hapi already supports this out-of-the-box, but only if all of those strategies are based on different schemes. With *hapi-auth-any* you can combine various strategies that are based on the same scheme.
