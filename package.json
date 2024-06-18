@@ -46,8 +46,7 @@
   },
   "nyc": {
     "reporter": [
-      "text",
-      "lcov"
+      "text"
     ]
   },
   "dependencies": {
