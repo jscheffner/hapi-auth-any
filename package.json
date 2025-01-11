@@ -4,8 +4,8 @@
   "description": "hapi auth scheme, combines multiple other strategies and passes if any of them does",
   "main": "index.js",
   "scripts": {
-    "test": "nyc node --test tests",
-    "lint": "eslint index.js tests/**/*.js examples/**/*.js",
+    "test": "node --test --experimental-test-coverage",
+    "lint": "eslint index.js test/**/*.js examples/**/*.js",
     "format": "npm run lint -- --fix"
   },
   "files": [
@@ -34,8 +34,7 @@
   "devDependencies": {
     "eslint": "^9.18.0",
     "hapi21": "npm:@hapi/hapi@^21.3.0",
-    "neostandard": "^0.12.0",
-    "nyc": "^17.0.0"
+    "neostandard": "^0.12.0"
   },
   "nyc": {
     "reporter": [
