@@ -1,59 +1,58 @@
-// eslint-disable-next-line import/no-dynamic-require
-const hapi = require(`hapi${process.env.HAPI_VERSION || '21'}`);
-const boom = require('@hapi/boom');
-const anyAuth = require('..');
+const hapi = require(`hapi${process.env.HAPI_VERSION || '21'}`)
+const boom = require('@hapi/boom')
+const anyAuth = require('..')
 
 const request = (server) => server.inject({
   url: '/',
   headers: { authorization: 'Bearer Something' },
-});
+})
 
 const authenticate = (succeed) => (_, h) => {
   if (succeed) {
-    return h.authenticated({ credentials: { scope: [] } });
+    return h.authenticated({ credentials: { scope: [] } })
   }
-  return boom.unauthorized('Missing Credentials');
-};
+  return boom.unauthorized('Missing Credentials')
+}
 
 const setupStrategies = (server, strategies) => {
   const names = strategies.map((succeed, index) => {
-    const name = `strategy-${index}`;
-    server.auth.strategy(name, 'test', { succeed });
-    return name;
-  });
+    const name = `strategy-${index}`
+    server.auth.strategy(name, 'test', { succeed })
+    return name
+  })
 
-  server.auth.strategy('any', 'any', { strategies: names });
-  server.auth.default('any');
-};
+  server.auth.strategy('any', 'any', { strategies: names })
+  server.auth.default('any')
+}
 
 const setupServerAndPlugin = async () => {
-  const server = hapi.server();
-  await server.initialize();
-  server.register(anyAuth);
+  const server = hapi.server()
+  await server.initialize()
+  server.register(anyAuth)
 
   server.route({
     method: 'GET',
     path: '/',
     options: {
-      handler() {
-        return 'authenticated';
+      handler () {
+        return 'authenticated'
       },
     },
-  });
+  })
 
-  server.auth.scheme('test', (_, { succeed }) => ({ authenticate: authenticate(succeed) }));
+  server.auth.scheme('test', (_, { succeed }) => ({ authenticate: authenticate(succeed) }))
 
-  return server;
-};
+  return server
+}
 
 const setupAll = async (strategies) => {
-  const server = await setupServerAndPlugin();
-  await setupStrategies(server, strategies);
-  return server;
-};
+  const server = await setupServerAndPlugin()
+  await setupStrategies(server, strategies)
+  return server
+}
 
 module.exports = {
   setup: setupAll,
   setupServerAndPlugin,
   request,
-};
+}
