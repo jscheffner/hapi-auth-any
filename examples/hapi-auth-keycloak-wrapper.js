@@ -22,11 +22,11 @@
  * ```
  */
 
-const hapiKeycloak = require('hapi-auth-keycloak');
-const anyAuth = require('hapi-auth-any');
+const hapiKeycloak = require('hapi-auth-keycloak')
+const anyAuth = require('hapi-auth-any')
 
 const register = async (server, opts) => {
-  const { realms, ...hapiKeycloakOptions } = opts;
+  const { realms, ...hapiKeycloakOptions } = opts
 
   await server.register([
     {
@@ -34,18 +34,18 @@ const register = async (server, opts) => {
       options: hapiKeycloakOptions,
     },
     anyAuth,
-  ]);
+  ])
 
   const strategies = realms.map(({ name, url }) => {
-    server.auth.strategy(name, 'keycloak-jwt', { name, realmUrl: url });
-    return name;
-  });
+    server.auth.strategy(name, 'keycloak-jwt', { name, realmUrl: url })
+    return name
+  })
 
-  server.auth.strategy('keycloak', 'any', { strategies });
-  server.auth.default('keycloak');
-};
+  server.auth.strategy('keycloak', 'any', { strategies })
+  server.auth.default('keycloak')
+}
 
 module.exports = {
   register,
   name: 'auth',
-};
+}

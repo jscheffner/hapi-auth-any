@@ -21,16 +21,16 @@ Install the plugin with `npm install hapi-auth-any`.
 Import `hapi-auth-any` and the plugins you need for the authentication strategies that you want to combine (in this example only `@hapi/basic`).
 
 ```js
-const authAny = require('hapi-auth-any');
-const basic = require('@hapi/basic');
+const authAny = require('hapi-auth-any')
+const basic = require('@hapi/basic')
 ```
 
 Then, create a Hapi server:
 
 ```js
-const hapi = require('@hapi/hapi');
+const hapi = require('@hapi/hapi')
 
-const server = hapi.server({ port: 8080 });
+const server = hapi.server({ port: 8080 })
 ```
 
 #### 3. Register
@@ -41,14 +41,14 @@ Now, register the plugins
 await server.register([
   anyAuth,
   basic
-]);
+])
 ````
 
 Register the authentication strategies you want to combine.
 
 ```js
-server.auth.strategy('foo', 'basic', {...});
-server.auth.strategy('bar', 'basic', {...});
+server.auth.strategy('foo', 'basic', {...})
+server.auth.strategy('bar', 'basic', {...})
 ```
 
 Finally, register the `hapi-auth-any` strategy and pass the names of the strategies it should combine as its `strategies` option. You can set the strategy as the default strategy so it's used for all routes or set it per route.
@@ -56,9 +56,9 @@ Finally, register the `hapi-auth-any` strategy and pass the names of the strateg
 ```js
 server.auth.strategy('any', 'any', {
   strategies: ['foo', 'bar'] 
-});
+})
 
-server.auth.default('any');
+server.auth.default('any')
 ```
 
 ## Debugging
@@ -70,9 +70,9 @@ To access the complete errors, including their stack, you can register an event 
 ```js
 server.events.on({ name: 'request', channels: 'internal' }, (request, event, tags) => {
   if (tags.auth && tags.error) {
-    console.log(event.error);
+    console.log(event.error)
   }
-});
+})
 ```
 
 In this, debugging `hapi-auth-any` isn't different from debugging other strategies. However, in order to preserve the errors that caused `hapi-auth-any` to fail, it throws an [AggregateError](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/AggregateError), decorated with some [boom](https://github.com/hapijs/boom)-specific properties.
