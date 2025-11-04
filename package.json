@@ -32,7 +32,7 @@
   ],
   "license": "ISC",
   "devDependencies": {
-    "eslint": "9.39.0",
+    "eslint": "9.39.1",
     "hapi21": "npm:@hapi/hapi@21.3.0",
     "neostandard": "0.12.2"
   },
